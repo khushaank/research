@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="icon" id="favicon" href="Black_KGR.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>Researches |KGR</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <h1>Research Index</h1>
+      <p>An overview of our published papers and ongoing studies.</p>
+
+      <div class="search-container">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search by title, keyword, or author..."
+        />
+        <div class="trending-searches">
+          <span>Trending:</span>
+          <button class="trending-btn">AI</button>
+          <button class="trending-btn">Climate</button>
+          <button class="trending-btn">Haryana</button>
+        </div>
+      </div>
+
+      <div class="research-index"></div>
+    </main>
+    <div id="access-modal" class="hidden">
+      <div class="access-modal-content">
+        <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+        <i data-feather="lock"></i>
+        <h2 id="modal-title">Access Restricted</h2>
+        <p id="modal-message"></p>
+        <a href="" id="modal-login-btn" class="submit-btn">Login to Continue</a>
+      </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

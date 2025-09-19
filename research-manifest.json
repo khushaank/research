@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Advancements in AI-Powered Data Analysis",
+    "meta": "Published: September 19, 2025 | By: Dr. A. Sharma",
+    "summary": "This study explores novel machine learning models to accelerate data processing in large-scale datasets...",
+    "file": "researches/paper1.md",
+    "type": "internal"
+  },
+  {
+    "title": "Raw Climate Data (2020-2025)",
+    "meta": "Dataset | Source: IMD",
+    "summary": "This is an external link to our raw climate dataset, hosted on Google Drive for public access.",
+    "file": "https://docs.google.com/document/d/1yV0pvmlhSNMYjUdvXUfbWO2yvFhv6rdtXB9tC3-mII8/edit?usp=sharing",
+    "type": "external"
+  }
+]

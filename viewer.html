@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View |KGRr</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" id="favicon" href="Black_KGR.png" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <article id="markdown-content" class="research-paper"></article>
+
+      <div id="link-map-container"></div>
+    </main>
+    <div id="access-modal" class="hidden">
+      <div class="access-modal-content">
+        <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+        <i data-feather="lock"></i>
+        <h2 id="modal-title">Access Restricted</h2>
+        <p id="modal-message"></p>
+        <a href="" id="modal-login-btn" class="submit-btn">Login to Continue</a>
+      </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="app.js"></script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const filePath = params.get("file");
+      const contentArea = document.getElementById("markdown-content");
+      const linkMapContainer = document.getElementById("link-map-container");
+
+      if (filePath) {
+        fetch("research-manifest.json")
+          .then((response) => response.json())
+          .then((manifest) => {
+            const paperInfo = manifest.find((item) => item.file === filePath);
+            if (paperInfo) {
+              document.title = `${paperInfo.title} | KGR`;
+            }
+          });
+
+        fetch(filePath)
+          .then((response) => response.text())
+          .then((markdown) => {
+            contentArea.innerHTML = marked.parse(markdown);
+            const links = contentArea.querySelectorAll("a");
+            if (links.length > 0) {
+              let linkListHTML = "<ol>";
+              links.forEach((link) => {
+                linkListHTML += `<li><a href="${link.href}" target="_blank">${link.textContent}</a></li>`;
+              });
+              linkListHTML += "</ol>";
+              linkMapContainer.innerHTML = `
+                <div class="link-map">
+                  <h3><i data-feather="link"></i> Quick Links in this Paper</h3>
+                  ${linkListHTML}
+                </div>
+              `;
+              feather.replace();
+            }
+          })
+          .catch((error) => {
+            contentArea.innerHTML = `<h1>Error</h1><p>Could not load the research file.</p>`;
+          });
+      } else {
+        contentArea.innerHTML = `<h1>Error</h1><p>No research file specified.</p>`;
+      }
+    </script>
+  </body>
+</html>
