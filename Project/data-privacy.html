@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data & Privacy | KGR</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" id="favicon" href="Black_KGR.png" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <main>
+      <h1>Data & Privacy Policy</h1>
+      <p>Effective Date: September 18, 2025</p>
+
+      <div class="legal-content">
+        <h2>Data We Collect</h2>
+        <p>
+          We collect information you provide directly to us when you create an
+          account. This includes your email address, full name, designation, and
+          any profile photo you choose to upload. We do not collect any personal
+          information beyond what is necessary for account functionality.
+        </p>
+
+        <h2>How We Use Your Data</h2>
+        <p>
+          Your data is used solely for the purpose of personalizing your
+          experience on our website (e.g., greeting you by name) and managing
+          your account. Your profile information, including your avatar and
+          name, is publicly visible to other users. Your email address is kept
+          private.
+        </p>
+
+        <h2>Data Storage and Security</h2>
+        <p>
+          All user data is securely stored and managed by our backend provider,
+          Supabase. We rely on their industry-standard security measures to
+          protect your information.
+        </p>
+
+        <h2>Deleting Your Account</h2>
+        <p>
+          You have the right to request the deletion of your account and all
+          associated data at any time. To do so, please follow the instructions
+          on your account settings page to send a deletion request to our
+          support email.
+        </p>
+      </div>
+    </main>
+    <div id="access-modal" class="hidden">
+      <div class="access-modal-content">
+        <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+        <i data-feather="lock"></i>
+        <h2 id="modal-title">Access Restricted</h2>
+        <p id="modal-message"></p>
+        <a href="" id="modal-login-btn" class="submit-btn">Login to Continue</a>
+      </div>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
